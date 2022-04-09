@@ -1817,6 +1817,7 @@ usage (char *progname)
 #ifndef _WIN32
 	   "\t[-s sound device (alsa) for audio (i.e. plughw:0,0 defaults to none)]\n"
 #endif
+		"\t[-D enable direct sampling (default: off)]\n"
 	   "\t[-v print out version info]\n\n");
    exit (1);
 }
@@ -2037,7 +2038,7 @@ main (int argc, char *argv[])
    }
 
    while (loop
-	  && ((opt = getopt (argc, argv, "C:c:a:b:d:e:f:g:hi:l:m:o:p:r:s:v:W:w:")) !=
+	  && ((opt = getopt (argc, argv, "C:c:a:b:d:e:f:g:hi:l:m:o:p:r:s:v:W:w:D:")) !=
 	      -1)) {
       switch (opt) {
 	case 'a':
@@ -2102,6 +2103,10 @@ main (int argc, char *argv[])
 	case 's':
 	   strcpy (mcb.sound_dev, optarg);
 	   break;
+
+   case 'D':
+      rtlsdr_set_direct_sampling(dev, ntohl(optarg));
+      break;
 
 	case 'v':
 	   printf ("\nGNU %s Version %s Date Built %s %s\n", progname,
