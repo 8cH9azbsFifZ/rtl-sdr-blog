@@ -108,6 +108,11 @@ target_link_libraries(rtl_tcp rtlsdr_shared convenience_static
     ${LIBUSB_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
 )
+target_link_libraries(rtl_hpsdr rtlsdr_shared convenience_static
+    ${LIBUSB_LIBRARIES}
+    ${CMAKE_THREAD_LIBS_INIT}
+    ${FFTW3_LIBRARIES}
+)
 target_link_libraries(rtl_test rtlsdr_shared convenience_static
     ${LIBUSB_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
@@ -146,6 +151,7 @@ endif()
 if(WIN32)
 target_link_libraries(rtl_sdr libgetopt_static)
 target_link_libraries(rtl_tcp ws2_32 libgetopt_static)
+target_link_libraries(rtl_hpsdr ws2_32 iphlpapi libgetopt_static)
 target_link_libraries(rtl_test libgetopt_static)
 target_link_libraries(rtl_fm libgetopt_static)
 target_link_libraries(rtl_eeprom libgetopt_static)
@@ -154,6 +160,7 @@ target_link_libraries(rtl_power libgetopt_static)
 target_link_libraries(rtl_biast libgetopt_static)
 set_property(TARGET rtl_sdr APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
 set_property(TARGET rtl_tcp APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
+set_property(TARGET rtl_hpsdr APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
 set_property(TARGET rtl_test APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
 set_property(TARGET rtl_fm APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
 set_property(TARGET rtl_eeprom APPEND PROPERTY COMPILE_DEFINITIONS "rtlsdr_STATIC" )
