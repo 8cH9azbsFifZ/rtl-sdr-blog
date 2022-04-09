@@ -86,6 +86,7 @@ endif()
 ########################################################################
 add_executable(rtl_sdr rtl_sdr.c)
 add_executable(rtl_tcp rtl_tcp.c)
+add_executable(rtl_hpsdr rtl_hpsdr.c)
 add_executable(rtl_test rtl_test.c)
 add_executable(rtl_fm rtl_fm.c)
 add_executable(rtl_eeprom rtl_eeprom.c)
