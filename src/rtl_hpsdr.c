@@ -19,7 +19,10 @@
 
 #include "rtl_hpsdr.h"
 #include "convenience/convenience.h"
-#include "version.h"
+
+//#include "version.h"
+#define GITVERSION "50f0bcb" // FIXME
+
 #include <sched.h>
 #include <unistd.h>
 #include <sys/stat.h>
